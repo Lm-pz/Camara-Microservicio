@@ -23,7 +23,7 @@ public class Camara implements Serializable {
 
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Estado estado;
+	private Estado miestado;
 
 	@NotNull 
 	private Long almacen_id;
@@ -67,11 +67,11 @@ public class Camara implements Serializable {
 	}
 
 	public Estado getEstado() {
-		return estado;
+		return miestado;
 	}
 
 	public void setEstado(Estado estado) {
-		this.estado = estado;
+		this.miestado = estado;
 	}
 
 	public Long getAlmacen_id() {

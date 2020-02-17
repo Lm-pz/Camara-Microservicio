@@ -13,7 +13,7 @@ public class Estado implements Serializable {
 	@Id
 	private String estado;
 
-	@OneToMany(
+	@OneToMany(mappedBy = "miestado",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 			)
