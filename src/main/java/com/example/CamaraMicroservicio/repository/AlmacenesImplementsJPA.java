@@ -13,7 +13,8 @@ import com.example.CamaraMicroservicio.model.Camara;
 
 @Component
 public class AlmacenesImplementsJPA  implements IAlmacenRespository{
-	private Mapper m=new Mapper();
+	@Autowired
+	private Mapper m;
 	@Autowired
 	private CamarasRepository cr;
 

@@ -1,10 +1,13 @@
 package com.example.CamaraMicroservicio.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
 import com.example.CamaraMicroservicio.DTO.EstadoDTO;
 import com.example.CamaraMicroservicio.model.Camara;
 import com.example.CamaraMicroservicio.model.Estado;
 
+@Component
 public class Mapper {
 
 	public CamaraDTO camaraEntityaDto(Camara c) {
