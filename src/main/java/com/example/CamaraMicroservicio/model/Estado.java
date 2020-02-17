@@ -1,7 +1,9 @@
 package com.example.CamaraMicroservicio.model;
 import javax.persistence.*;
+
 import java.io.Serializable;
-import java.util.ArrayList;
+
+import java.util.List;
 
 @Entity
 public class Estado implements Serializable {
@@ -15,7 +17,7 @@ public class Estado implements Serializable {
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 			)
-	private ArrayList<Camara> camaras = new ArrayList<>();
+	private List<Camara> camaras;
 
 	public Estado() {
 
