@@ -26,7 +26,7 @@ private Estado estado;
 @NotNull 
 private Long almacen_id;
 
-@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+@ManyToOne(fetch = FetchType.LAZY)
 private long producto_id;
 
 public Camara() {
