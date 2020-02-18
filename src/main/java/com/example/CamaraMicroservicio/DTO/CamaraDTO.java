@@ -14,14 +14,14 @@ public class CamaraDTO {
 
 	private long almacen_id;
 
-	private long producto_id;
+	private String nombre_camara;
 
 	public CamaraDTO() {
 
 	}
 
 	public CamaraDTO(long camara_id, double ancho_camara, double largo_camara, double temperatura_actual, EstadoDTO estado,
-			long almacen_id, long producto_id) {
+			long almacen_id, String nombre_camara) {
 
 		this.camara_id = camara_id;
 		this.ancho_camara = ancho_camara;
@@ -29,7 +29,7 @@ public class CamaraDTO {
 		this.temperatura_actual = temperatura_actual;
 		this.estado = estado;
 		this.almacen_id = almacen_id;
-		this.producto_id = producto_id;
+		this.nombre_camara=nombre_camara;
 	}
 
 	public long getCamara_id() {
@@ -80,12 +80,14 @@ public class CamaraDTO {
 		this.almacen_id = almacen_id;
 	}
 
-	public long getProducto_id() {
-		return producto_id;
+	public String getNombre_camara() {
+		return nombre_camara;
 	}
 
-	public void setProducto_id(long producto_id) {
-		this.producto_id = producto_id;
+	public void setNombre_camara(String nombre_camara) {
+		this.nombre_camara = nombre_camara;
 	}
+
+
 
 }

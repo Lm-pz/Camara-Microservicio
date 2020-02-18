@@ -14,7 +14,7 @@ public class Mapper {
 		EstadoDTO est=new EstadoDTO(c.getEstado().getEstado());
 		CamaraDTO camara = new CamaraDTO(c.getCamara_id(),c.getAncho_camara(),
 				c.getLargo_camara(), c.getTemperatura_actual(),est,c.getAlmacen_id(),
-				c.getProducto_id());
+				c.getNombre_camara());
 		return camara;
 	}
 	
@@ -28,7 +28,7 @@ public class Mapper {
 		camara.setAlmacen_id(c.getAlmacen_id());
 		camara.setEstado(e);
 		camara.setTemperatura_actual(c.getTemperatura_actual());
-		camara.setProducto_id(c.getProducto_id());
+		camara.setNombre_camara(c.getNombre_camara());
 		return camara;
 	}
 }

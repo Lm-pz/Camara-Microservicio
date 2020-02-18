@@ -1,11 +1,8 @@
 package com.example.CamaraMicroservicio.repository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
 import com.example.CamaraMicroservicio.mapper.Mapper;
 import com.example.CamaraMicroservicio.model.Camara;

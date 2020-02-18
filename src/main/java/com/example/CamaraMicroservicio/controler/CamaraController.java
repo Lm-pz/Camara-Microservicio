@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
 import com.example.CamaraMicroservicio.service.ICamaraServicio;
@@ -35,15 +34,15 @@ public class CamaraController {
 	
 	@DeleteMapping("/eliminarCamara/{id}")
 	public int elminarCamara ( @PathVariable long id  ) {
-		camaraServicio.deleteCamara(id);
-		return 0;
+		
+		return camaraServicio.deleteCamara(id);
 		
 	}
 	
 	@PutMapping("/modificarCamara")
 	public int modificarCamara ( @RequestBody CamaraDTO cam ) {
-		camaraServicio.updateCamara(cam);
-		return 0;
+		
+		return camaraServicio.updateCamara(cam);
 		
 	}
 	

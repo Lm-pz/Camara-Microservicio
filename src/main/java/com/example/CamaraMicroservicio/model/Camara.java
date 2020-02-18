@@ -20,6 +20,9 @@ public class Camara implements Serializable {
 
 	@NotNull 
 	private Double temperatura_actual;
+	
+	@NotNull
+	private String nombre_camara;
 
 	@NotNull 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -28,7 +31,6 @@ public class Camara implements Serializable {
 	@NotNull 
 	private Long almacen_id;
 
-	private long producto_id;
 
 	public Camara() {
 
@@ -82,16 +84,12 @@ public class Camara implements Serializable {
 		this.almacen_id = almacen_id;
 	}
 
-	public long getProducto_id() {
-		return producto_id;
+	public String getNombre_camara() {
+		return nombre_camara;
 	}
 
-	public void setProducto_id(long producto_id) {
-		this.producto_id = producto_id;
+	public void setNombre_camara(String nombre_camara) {
+		this.nombre_camara = nombre_camara;
 	}
-
-
-
-
 
 }
