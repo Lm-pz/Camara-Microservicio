@@ -28,9 +28,9 @@ public class CamaraController {
 	}
 	
 	@PostMapping ("/altaCamara")
-	public int altaCamara ( @RequestBody CamaraDTO cam ) {
-		camaraServicio.altaCamara(cam);
-		return 1;
+	public CamaraDTO altaCamara ( @RequestBody CamaraDTO cam ) {
+		
+		return camaraServicio.altaCamara(cam);
 	}
 	
 	@DeleteMapping("/eliminarCamara/{id}")
@@ -45,6 +45,11 @@ public class CamaraController {
 		camaraServicio.updateCamara(cam);
 		return 0;
 		
+	}
+	
+	@GetMapping("/findCamara/{id}")
+	public CamaraDTO findCamara ( @PathVariable long id ){
+		return camaraServicio.findCamera(id);
 	}
 	
 }

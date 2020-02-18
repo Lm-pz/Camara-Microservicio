@@ -1,6 +1,7 @@
 package com.example.CamaraMicroservicio.repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,11 +31,10 @@ public class AlmacenesImplementsJPA  implements IAlmacenRespository{
 	}
 
 	@Override
-	public int addCamara(CamaraDTO cam) {
+	public CamaraDTO addCamara(CamaraDTO cam) {
 		Camara c= m.DtoaCamaraEntity(cam);
-		
-			cr.save(c);
-		return 0;
+		Camara aux=cr.save(c);
+		return m.camaraEntityaDto(aux);
 	}
 
 	
@@ -43,16 +43,22 @@ public class AlmacenesImplementsJPA  implements IAlmacenRespository{
 	}
 
 	@Override
-	public int deleteCamara(long id) {
-		
+	public int deleteCamara(long id){
 		cr.deleteById(id);
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public int updateCamara(CamaraDTO cam) {
 		Camara c= m.DtoaCamaraEntity(cam);
-		cr.save(c);		return 0;
+		cr.save(c);		
+		return 1;
+	}
+
+	@Override
+	public CamaraDTO findCamara(long id) {
+		Camara c= cr.findById(id).get();
+		return m.camaraEntityaDto(c);
 	}
 	
 	

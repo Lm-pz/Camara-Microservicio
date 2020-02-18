@@ -11,12 +11,14 @@ public interface IAlmacenRespository {
 
 	public List<CamaraDTO> findAllCamaras ();
 	
-	public int addCamara(CamaraDTO cam);
+	public CamaraDTO addCamara(CamaraDTO cam);
 	
 	public boolean existeEntidad(Long id);
 	
 	public int deleteCamara(long id);
 	
 	public int updateCamara(CamaraDTO cam);
+	
+	public CamaraDTO findCamara(long id);
 
 }
