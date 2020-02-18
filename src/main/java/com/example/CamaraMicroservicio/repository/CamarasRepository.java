@@ -10,5 +10,6 @@ public interface CamarasRepository extends JpaRepository <Camara, Long>{
 
 	@Query("select r from Camara r where r.camara_id = :id")
 	Camara getCamera (Long id);
+	
 
 }

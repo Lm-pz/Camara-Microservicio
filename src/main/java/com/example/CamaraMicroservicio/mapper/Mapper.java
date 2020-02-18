@@ -25,6 +25,7 @@ public class Mapper {
 		camara.setCamara_id(c.getCamara_id());
 		camara.setAncho_camara(c.getAncho_camara());
 		camara.setLargo_camara(c.getLargo_camara());
+		camara.setAlmacen_id(c.getAlmacen_id());
 		camara.setEstado(e);
 		camara.setTemperatura_actual(c.getTemperatura_actual());
 		camara.setProducto_id(c.getProducto_id());

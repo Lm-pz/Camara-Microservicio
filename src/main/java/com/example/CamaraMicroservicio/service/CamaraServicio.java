@@ -9,10 +9,32 @@ import com.example.CamaraMicroservicio.repository.IAlmacenRespository;
 
 @Service
 public class CamaraServicio implements ICamaraServicio{
-
+	
 	@Autowired
 	IAlmacenRespository repo;
 	public ArrayList<CamaraDTO> obtenerTodos() {
 		return (ArrayList<CamaraDTO>)repo.findAllCamaras();
+	}
+	
+
+	@Override
+	public int altaCamara(CamaraDTO c) {
+		if(!repo.existeEntidad(c.getCamara_id()))
+			repo.addCamara(c);
+		return 0;
+	}
+
+
+	@Override
+	public int deleteCamara(CamaraDTO camara) {
+		if(repo.existeEntidad(camara.getCamara_id()))
+			repo.deleteCamara(camara)	;	return 0;
+	}
+
+
+	@Override
+	public int updateCamara(CamaraDTO camara) {
+		if(repo.existeEntidad(camara.getCamara_id()))
+			repo.updateCamara(camara)	;		return 0;
 	}
 }

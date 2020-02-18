@@ -29,4 +29,32 @@ public class AlmacenesImplementsJPA  implements IAlmacenRespository{
 		return camarasDto;
 	}
 
+	@Override
+	public int addCamara(CamaraDTO cam) {
+		Camara c= m.DtoaCamaraEntity(cam);
+		
+			cr.save(c);
+		return 0;
+	}
+
+	
+	public boolean existeEntidad(Long id) {
+		return cr.existsById(id);
+	}
+
+	@Override
+	public int deleteCamara(CamaraDTO cam) {
+		Camara c= m.DtoaCamaraEntity(cam);
+		cr.delete(c);
+		return 0;
+	}
+
+	@Override
+	public int updateCamara(CamaraDTO cam) {
+		Camara c= m.DtoaCamaraEntity(cam);
+		cr.save(c);		return 0;
+	}
+	
+	
+
 }
