@@ -43,9 +43,9 @@ public class AlmacenesImplementsJPA  implements IAlmacenRespository{
 	}
 
 	@Override
-	public int deleteCamara(CamaraDTO cam) {
-		Camara c= m.DtoaCamaraEntity(cam);
-		cr.delete(c);
+	public int deleteCamara(long id) {
+		
+		cr.deleteById(id);
 		return 0;
 	}
 

@@ -26,15 +26,16 @@ public class CamaraServicio implements ICamaraServicio{
 
 
 	@Override
-	public int deleteCamara(CamaraDTO camara) {
-		if(repo.existeEntidad(camara.getCamara_id()))
-			repo.deleteCamara(camara)	;	return 0;
+	public int deleteCamara(long id) {
+		if(repo.existeEntidad(id))
+			repo.deleteCamara(id)	;	return 0;
 	}
 
 
 	@Override
 	public int updateCamara(CamaraDTO camara) {
 		if(repo.existeEntidad(camara.getCamara_id()))
-			repo.updateCamara(camara)	;		return 0;
+			repo.updateCamara(camara)	;		
+		return 0;
 	}
 }

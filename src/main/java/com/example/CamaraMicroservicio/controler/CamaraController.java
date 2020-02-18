@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,25 +22,25 @@ public class CamaraController {
 	@Autowired
 	private ICamaraServicio camaraServicio;
 	
-	@GetMapping("/lista")
+	@GetMapping("/listaCamaras")
 	public ArrayList<CamaraDTO> listaTodos (){
 		return camaraServicio.obtenerTodos();
 	}
 	
-	@PostMapping ("/alta")
+	@PostMapping ("/altaCamara")
 	public int altaCamara ( @RequestBody CamaraDTO cam ) {
 		camaraServicio.altaCamara(cam);
 		return 1;
 	}
 	
-	@DeleteMapping("/eliminar")
-	public int elminarCamara ( @RequestBody CamaraDTO cam ) {
-		camaraServicio.deleteCamara(cam);
+	@DeleteMapping("/eliminarCamara/{id}")
+	public int elminarCamara ( @PathVariable long id  ) {
+		camaraServicio.deleteCamara(id);
 		return 0;
 		
 	}
 	
-	@PutMapping("/modificar")
+	@PutMapping("/modificarCamara")
 	public int modificarCamara ( @RequestBody CamaraDTO cam ) {
 		camaraServicio.updateCamara(cam);
 		return 0;

@@ -15,7 +15,8 @@ public interface IAlmacenRespository {
 	
 	public boolean existeEntidad(Long id);
 	
-	public int deleteCamara(CamaraDTO cam);
+	public int deleteCamara(long id);
 	
 	public int updateCamara(CamaraDTO cam);
+
 }

@@ -10,7 +10,9 @@ public interface ICamaraServicio {
 	
 	public int altaCamara(CamaraDTO camara);
 	
-	public int deleteCamara(CamaraDTO camara);
+	public int deleteCamara(long id);
 	
 	public int updateCamara(CamaraDTO camara);
+
+	
 }
