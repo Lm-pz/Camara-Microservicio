@@ -1,22 +1,21 @@
 package com.example.CamaraMicroservicio.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
-import com.example.CamaraMicroservicio.repository.IAlmacenRespository;
-
+import com.example.CamaraMicroservicio.repository.ICamaraRepository;
 
 @Service
 public class CamaraServicio implements ICamaraServicio{
 	
 	@Autowired
-	IAlmacenRespository repo;
+	ICamaraRepository repo;
 	public ArrayList<CamaraDTO> obtenerTodos() {
 		return (ArrayList<CamaraDTO>)repo.findAllCamaras();
 	}
 	
-
 	@Override
 	public CamaraDTO altaCamara(CamaraDTO c) {
 		CamaraDTO cam=null;
@@ -25,7 +24,6 @@ public class CamaraServicio implements ICamaraServicio{
 		return cam;
 	}
 
-
 	@Override
 	public int deleteCamara(long id) {
 		int exito=0;
@@ -33,7 +31,6 @@ public class CamaraServicio implements ICamaraServicio{
 			exito=repo.deleteCamara(id)	;	
 		return exito;
 	}
-
 
 	@Override
 	public int updateCamara(CamaraDTO camara) {
@@ -49,5 +46,18 @@ public class CamaraServicio implements ICamaraServicio{
 		if(repo.existeEntidad(id))
 		cam=repo.findCamara(id);
 		return cam;
+	}
+
+	@Override
+	public int NCamarasAlmacen(long id) {
+		return repo.NCamarasAlmacen(id);
+	}
+
+	@Override
+	public ArrayList<CamaraDTO> obtenerCamarasAlmacen(long id) {
+		List<CamaraDTO> camarasDto = new ArrayList<> ();
+		if (repo.NCamarasAlmacen(id)>0)
+			camarasDto = repo.getCamarasAlmacen(id);
+		return (ArrayList<CamaraDTO>) camarasDto;
 	}
 }

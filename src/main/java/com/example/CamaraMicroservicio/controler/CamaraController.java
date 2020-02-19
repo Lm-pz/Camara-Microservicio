@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
 import com.example.CamaraMicroservicio.service.ICamaraServicio;
 
-
 @RequestMapping("camara")
 @RestController
 public class CamaraController {
@@ -50,5 +49,15 @@ public class CamaraController {
 	public CamaraDTO findCamara ( @PathVariable long id ){
 		return camaraServicio.findCamera(id);
 	}
+	
+	@GetMapping("/findNCamara/{id}")
+	public int findNCamara ( @PathVariable long id ){
+		return camaraServicio.NCamarasAlmacen(id);
+	}
+	
+	@GetMapping("/findCSensor/{id}")
+	public ArrayList<CamaraDTO> findACamara ( @PathVariable long id ){
+		return camaraServicio.obtenerCamarasAlmacen(id);	
+		}
 	
 }

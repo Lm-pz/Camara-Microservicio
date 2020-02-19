@@ -10,7 +10,7 @@ import com.example.CamaraMicroservicio.model.Camara;
 
 
 @Component
-public class AlmacenesImplementsJPA  implements IAlmacenRespository{
+public class CamarasImplementsJPA  implements ICamaraRepository{
 	@Autowired
 	private Mapper m;
 	@Autowired
@@ -56,6 +56,22 @@ public class AlmacenesImplementsJPA  implements IAlmacenRespository{
 	public CamaraDTO findCamara(long id) {
 		Camara c= cr.findById(id).get();
 		return m.camaraEntityaDto(c);
+	}
+
+	@Override
+	public int NCamarasAlmacen(long id) {
+		return cr.getNCamarasAlmacen(id);
+	}
+
+	@Override
+	public List<CamaraDTO> getCamarasAlmacen(long id) {
+		List<CamaraDTO> camarasDto = new ArrayList<> ();
+		List<Camara> cams = cr.getCamarasAlmacen(id);
+		for(Camara c:cams) {
+		camarasDto.add(
+			m.camaraEntityaDto(c));
+		}
+		return camarasDto;
 	}
 	
 	
