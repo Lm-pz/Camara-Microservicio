@@ -1,5 +1,8 @@
 package com.example.CamaraMicroservicio.mapper;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Component;
 
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
@@ -13,14 +16,16 @@ public class Mapper {
 	public CamaraDTO camaraEntityaDto(Camara c) {
 		EstadoDTO est=new EstadoDTO(c.getEstado().getEstado());
 		CamaraDTO camara = new CamaraDTO(c.getCamara_id(),c.getAncho_camara(),
-				c.getLargo_camara(), c.getTemperatura_actual(),est,c.getAlmacen_id(),
-				c.getNombre_camara());
+				c.getLargo_camara(), c.getTemperatura_actual(),est.getEstado(),c.getAlmacen_id(),
+				c.getNombre_camara(),c.getEan(),c.getFechaentrada().toString(),
+				c.getFechasalida().toString());
 		return camara;
 	}
 	
 	public Camara DtoaCamaraEntity(CamaraDTO c) {
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 		Estado e=new Estado();
-		e.setEstado(c.getEstado().getEstado());
+		e.setEstado(c.getEstado());
 		Camara camara=new Camara();
 		camara.setCamara_id(c.getCamara_id());
 		camara.setAncho_camara(c.getAncho_camara());
@@ -29,6 +34,9 @@ public class Mapper {
 		camara.setEstado(e);
 		camara.setTemperatura_actual(c.getTemperatura_actual());
 		camara.setNombre_camara(c.getNombre_camara());
+		camara.setEan(c.getEan());
+		camara.setFechaentrada(LocalDate.parse(c.getFechaentrada(), formatter));
+		camara.setFechasalida(LocalDate.parse(c.getFechasalida(), formatter));
 		return camara;
 	}
 }

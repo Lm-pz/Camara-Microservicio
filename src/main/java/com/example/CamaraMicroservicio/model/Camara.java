@@ -1,5 +1,7 @@
 package com.example.CamaraMicroservicio.model;
 import java.io.Serializable;
+import java.time.LocalDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -30,7 +32,12 @@ public class Camara implements Serializable {
 
 	@NotNull 
 	private Long almacen_id;
+	
+	private Long ean;
+	
+	private LocalDate fechaentrada;
 
+	private LocalDate fechasalida;
 
 	public Camara() {
 
@@ -92,4 +99,30 @@ public class Camara implements Serializable {
 		this.nombre_camara = nombre_camara;
 	}
 
+	public Long getEan() {
+		return ean;
+	}
+
+	public void setEan(Long ean) {
+		this.ean = ean;
+	}
+
+	public LocalDate getFechaentrada() {
+		return fechaentrada;
+	}
+
+	public void setFechaentrada(LocalDate fechaentrada) {
+		this.fechaentrada = fechaentrada;
+	}
+
+	public LocalDate getFechasalida() {
+		return fechasalida;
+	}
+
+	public void setFechasalida(LocalDate fechasalida) {
+		this.fechasalida = fechasalida;
+	}
+
+	
+	
 }

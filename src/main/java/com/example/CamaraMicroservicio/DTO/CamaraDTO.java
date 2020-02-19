@@ -10,18 +10,22 @@ public class CamaraDTO {
 
 	private double temperatura_actual;
 
-	private EstadoDTO estado;
+	private String estado;
 
 	private long almacen_id;
 
 	private String nombre_camara;
+	
+	private long ean;
+	
+	private String fechaentrada,fechasalida;
 
 	public CamaraDTO() {
 
 	}
 
-	public CamaraDTO(long camara_id, double ancho_camara, double largo_camara, double temperatura_actual, EstadoDTO estado,
-			long almacen_id, String nombre_camara) {
+	public CamaraDTO(long camara_id, double ancho_camara, double largo_camara, double temperatura_actual, String estado,
+			long almacen_id, String nombre_camara, long ean,String fechaentrada,String fechasalida) {
 
 		this.camara_id = camara_id;
 		this.ancho_camara = ancho_camara;
@@ -30,6 +34,9 @@ public class CamaraDTO {
 		this.estado = estado;
 		this.almacen_id = almacen_id;
 		this.nombre_camara=nombre_camara;
+		this.ean=ean;
+		this.fechaentrada=fechaentrada;
+		this.fechasalida=fechasalida;
 	}
 
 	public long getCamara_id() {
@@ -64,11 +71,11 @@ public class CamaraDTO {
 		this.temperatura_actual = temperatura_actual;
 	}
 
-	public EstadoDTO getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadoDTO estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
@@ -86,6 +93,30 @@ public class CamaraDTO {
 
 	public void setNombre_camara(String nombre_camara) {
 		this.nombre_camara = nombre_camara;
+	}
+
+	public long getEan() {
+		return ean;
+	}
+
+	public void setEan(long ean) {
+		this.ean = ean;
+	}
+
+	public String getFechaentrada() {
+		return fechaentrada;
+	}
+
+	public void setFechaentrada(String fechaentrada) {
+		this.fechaentrada = fechaentrada;
+	}
+
+	public String getFechasalida() {
+		return fechasalida;
+	}
+
+	public void setFechasalida(String fechasalida) {
+		this.fechasalida = fechasalida;
 	}
 
 
