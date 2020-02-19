@@ -1,6 +1,8 @@
 package com.example.CamaraMicroservicio.controler;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
+import com.example.CamaraMicroservicio.DTO.SensorDTO;
 import com.example.CamaraMicroservicio.service.ICamaraServicio;
 
 @RequestMapping("camara")
@@ -55,9 +58,17 @@ public class CamaraController {
 		return camaraServicio.NCamarasAlmacen(id);
 	}
 	
-	@GetMapping("/findCSensor/{id}")
+	@GetMapping("/findCAlmacen/{id}")
 	public ArrayList<CamaraDTO> findACamara ( @PathVariable long id ){
 		return camaraServicio.obtenerCamarasAlmacen(id);	
 		}
 	
+	@GetMapping("/find/{id}")
+	public List<SensorDTO> findASensor( @PathVariable long id ){
+		return camaraServicio.sensoresasociados(id);
+		}
+	
+	@GetMapping("/findns/{id}")
+	public int findnSensor( @PathVariable long id ){
+		return camaraServicio.getnumerodesensores(id);}
 }

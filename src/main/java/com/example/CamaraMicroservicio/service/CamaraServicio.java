@@ -1,15 +1,21 @@
 package com.example.CamaraMicroservicio.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
+import com.example.CamaraMicroservicio.DTO.SensorDTO;
 import com.example.CamaraMicroservicio.repository.ICamaraRepository;
 
 @Service
 public class CamaraServicio implements ICamaraServicio{
 	
+	@Autowired
+	RestTemplate resttemplate;
 	@Autowired
 	ICamaraRepository repo;
 	public ArrayList<CamaraDTO> obtenerTodos() {
@@ -59,5 +65,17 @@ public class CamaraServicio implements ICamaraServicio{
 		if (repo.NCamarasAlmacen(id)>0)
 			camarasDto = repo.getCamarasAlmacen(id);
 		return (ArrayList<CamaraDTO>) camarasDto;
+	}
+	
+	public List<SensorDTO> sensoresasociados(long id) {
+		String url="http://localhost:8081/sensor/findCSensor/"+id;
+		ResponseEntity<SensorDTO[]> responseEntity = resttemplate.getForEntity(url, SensorDTO[].class);
+		List<SensorDTO> sensores = Arrays.asList(responseEntity.getBody());
+		return sensores; 
+	}
+	
+	public int getnumerodesensores(long id) {
+		String url="http://localhost:8081/sensor/findNSensor/"+id;
+		return resttemplate.getForObject(url, int.class);
 	}
 }

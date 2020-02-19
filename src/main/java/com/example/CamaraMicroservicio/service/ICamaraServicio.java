@@ -1,7 +1,10 @@
 package com.example.CamaraMicroservicio.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.example.CamaraMicroservicio.DTO.CamaraDTO;
+import com.example.CamaraMicroservicio.DTO.SensorDTO;
 
 
 
@@ -20,4 +23,8 @@ public interface ICamaraServicio {
 	int NCamarasAlmacen(long id);
 	
 	ArrayList<CamaraDTO> obtenerCamarasAlmacen(long id);
+	
+	List<SensorDTO> sensoresasociados(long id);
+	
+	public int getnumerodesensores(long id);
 }
