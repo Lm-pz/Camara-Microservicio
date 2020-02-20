@@ -1,5 +1,8 @@
 package com.example.CamaraMicroservicio.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -77,5 +80,18 @@ public class CamaraServicio implements ICamaraServicio{
 	public int getnumerodesensores(long id) {
 		String url="http://localhost:8081/sensor/findNSensor/"+id;
 		return resttemplate.getForObject(url, int.class);
+	}
+	
+	public int asignarproducto(CamaraDTO camara) {
+		int exito=0;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+		LocalDate ld=LocalDate.parse(camara.getFechasalida(), formatter);
+		ld=ld.plusDays(3);
+		if(ld.isBefore(LocalDate.now())) {
+			exito=1;
+			camara.setEstado("Ocupado");
+			repo.updateCamara(camara);
+		}
+		return exito;		
 	}
 }

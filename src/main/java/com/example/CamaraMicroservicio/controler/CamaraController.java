@@ -47,6 +47,13 @@ public class CamaraController {
 		
 	}
 	
+	@PutMapping("/asignaraCamara")
+	public int asignaraCamara ( @RequestBody CamaraDTO cam ) {
+		
+		return camaraServicio.asignarproducto(cam);
+		
+	}
+	
 	@GetMapping("/findCamara/{id}")
 	public CamaraDTO findCamara ( @PathVariable long id ){
 		return camaraServicio.findCamera(id);

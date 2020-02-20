@@ -27,4 +27,6 @@ public interface ICamaraServicio {
 	List<SensorDTO> sensoresasociados(long id);
 	
 	public int getnumerodesensores(long id);
+
+	public int asignarproducto(CamaraDTO cam);
 }

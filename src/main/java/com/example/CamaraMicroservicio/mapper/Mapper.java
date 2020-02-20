@@ -23,7 +23,7 @@ public class Mapper {
 	}
 	
 	public Camara DtoaCamaraEntity(CamaraDTO c) {
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
 		Estado e=new Estado();
 		e.setEstado(c.getEstado());
 		Camara camara=new Camara();

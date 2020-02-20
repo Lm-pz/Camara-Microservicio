@@ -20,5 +20,7 @@ public interface ICamaraRepository {
 	public int NCamarasAlmacen(long id);
 	
 	public List<CamaraDTO> getCamarasAlmacen(long id);
+	
+
 
 }
