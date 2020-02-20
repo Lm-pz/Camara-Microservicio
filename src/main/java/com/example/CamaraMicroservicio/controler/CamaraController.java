@@ -69,12 +69,5 @@ public class CamaraController {
 		return camaraServicio.obtenerCamarasAlmacen(id);	
 		}
 	
-	@GetMapping("/find/{id}")
-	public List<SensorDTO> findASensor( @PathVariable long id ){
-		return camaraServicio.sensoresasociados(id);
-		}
 	
-	@GetMapping("/findns/{id}")
-	public int findnSensor( @PathVariable long id ){
-		return camaraServicio.getnumerodesensores(id);}
 }

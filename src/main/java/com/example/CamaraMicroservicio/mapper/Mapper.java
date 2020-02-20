@@ -35,8 +35,10 @@ public class Mapper {
 		camara.setTemperatura_actual(c.getTemperatura_actual());
 		camara.setNombre_camara(c.getNombre_camara());
 		camara.setEan(c.getEan());
-		camara.setFechaentrada(LocalDate.parse(c.getFechaentrada(), formatter));
-		camara.setFechasalida(LocalDate.parse(c.getFechasalida(), formatter));
+		LocalDate date=(c.getFechaentrada()!=null?LocalDate.parse(c.getFechaentrada(), formatter):null);
+		camara.setFechaentrada(date);
+		date=(c.getFechasalida()!=null?LocalDate.parse(c.getFechasalida(), formatter):null);
+		camara.setFechasalida(date);
 		return camara;
 	}
 }
