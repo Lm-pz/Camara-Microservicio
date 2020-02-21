@@ -41,4 +41,8 @@ public class Mapper {
 		camara.setFechasalida(date);
 		return camara;
 	}
+	
+	public EstadoDTO estadoentityaDTO(Estado e) {
+		return new EstadoDTO(e.getEstado());
+	}
 }

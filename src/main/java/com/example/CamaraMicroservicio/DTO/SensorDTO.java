@@ -14,14 +14,14 @@ public class SensorDTO {
 	
 	private double area_medida;
 
-	private long camara_id;
+	private Long camara_id;
 
 	public SensorDTO() {
 		
 	}
 
 	public SensorDTO(String numero_serie, String fabricante, double temperatura_maxima, double temperatura_minima,
-			double temperatura_actual,	double area_medida, long camara_id) {
+			double temperatura_actual,	double area_medida, Long camara_id) {
 		this.numero_serie = numero_serie;
 		this.fabricante = fabricante;
 		this.temperatura_maxima = temperatura_maxima;
@@ -71,11 +71,11 @@ public class SensorDTO {
 		this.area_medida = area_medida;
 	}
 
-	public long getCamara_id() {
+	public Long getCamara_id() {
 		return camara_id;
 	}
 
-	public void setCamara_id(long camara_id) {
+	public void setCamara_id(Long camara_id) {
 		this.camara_id = camara_id;
 	}
 

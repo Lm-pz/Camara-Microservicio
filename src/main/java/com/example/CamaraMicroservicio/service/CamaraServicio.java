@@ -43,7 +43,7 @@ public class CamaraServicio implements ICamaraServicio {
 			List<SensorDTO> sensores = sensoresasociados(id);
 			if (!sensores.isEmpty()) {
 				sensores.stream().forEach(x -> {
-					x.setCamara_id(-1);
+					x.setCamara_id(null);
 					resttemplate.put(url, x);
 				});
 
